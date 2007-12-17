@@ -7,7 +7,6 @@ Group:		File tools
 Url:		http://wolfpack.twu.net/utilities.html#ziptool
 Source0:	ftp://wolfpack.twu.net/users/wolfpack/%{name}-%{version}.tar.bz2
 #Patch0:	%{name}-1.2-compile.patch.bz2
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 #ExcludeArch:	ppc
 BuildRequires:	kernel-source
 
