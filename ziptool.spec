@@ -1,7 +1,7 @@
 Summary:	Tools for Iomega JAZ and ZIP drives
 Name:		ziptool
 Version:	1.4.0
-Release:	%mkrel 9
+Release:	%mkrel 10
 License:	GPL
 Group:		File tools
 Url:		http://wolfpack.twu.net/utilities.html#ziptool
