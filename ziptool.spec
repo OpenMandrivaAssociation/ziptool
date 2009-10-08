@@ -1,14 +1,14 @@
 Summary:	Tools for Iomega JAZ and ZIP drives
 Name:		ziptool
 Version:	1.4.0
-Release:	%mkrel 10
+Release:	%mkrel 6
 License:	GPL
 Group:		File tools
 Url:		http://wolfpack.twu.net/utilities.html#ziptool
 Source0:	ftp://wolfpack.twu.net/users/wolfpack/%{name}-%{version}.tar.bz2
-#Patch0:	%{name}-1.2-compile.patch.bz2
+Patch0:		ziptool-1.4.0-build-fix-private-scsi-define.patch
+Patch1:		ziptool-1.4.0-format-security.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-#ExcludeArch:	ppc
 BuildRequires:	kernel-source
 
 %description
@@ -17,7 +17,8 @@ jaztool and ziptool make this features available for Linux.
 
 %prep
 %setup -q
-#%patch0 -p1
+%patch0 -p1 -b .build-fix-private-scsi-define
+%patch1 -p1 -b .format-security
 %{__gzip} -d %{name}.1.gz
 
 %build
