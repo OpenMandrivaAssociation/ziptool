@@ -1,0 +1,36 @@
+diff -p -up ziptool-1.4.0/Makefile.orig ziptool-1.4.0/Makefile
+--- ziptool-1.4.0/Makefile.orig	2009-10-08 15:40:46.000000000 -0300
++++ ziptool-1.4.0/Makefile	2009-10-08 15:41:13.000000000 -0300
+@@ -5,10 +5,6 @@
+ #
+ CFLAGS = -O2 -g -Wall
+ 
+-# Path to linux kernel sources.
+-#
+-LINUX_SRC_DIR = /usr/src/linux
+-
+ # Installation directories
+ #
+ INSTALL_BIN_DIR = /usr/bin
+@@ -30,7 +26,7 @@ install: all
+ 	cd $(INSTALL_MAN_DIR)/man1; ln -sf ziptool.1.gz jaztool.1.gz
+ 
+ ziptool: ziptool.c
+-	cc $(CFLAGS) -I$(LINUX_SRC_DIR)/include -o ziptool ziptool.c
++	cc $(CFLAGS) -o ziptool ziptool.c
+ 
+ jaztool: ziptool.c
+-	cc $(CFLAGS) -I$(LINUX_SRC_DIR)/include -o jaztool ziptool.c
++	cc $(CFLAGS) -o jaztool ziptool.c
+diff -p -up ziptool-1.4.0/ziptool.c.orig ziptool-1.4.0/ziptool.c
+--- ziptool-1.4.0/ziptool.c.orig	2009-10-08 15:47:06.000000000 -0300
++++ ziptool-1.4.0/ziptool.c	2009-10-08 15:48:35.000000000 -0300
+@@ -49,6 +49,8 @@
+ 
+ #include <scsi/scsi.h>
+ #include <scsi/scsi_ioctl.h>
++#undef _SCSI_IOCTL_H
++#include "/usr/src/linux/include/scsi/scsi_ioctl.h"
+ 
+ 
+ #ifndef PROG_VERSION

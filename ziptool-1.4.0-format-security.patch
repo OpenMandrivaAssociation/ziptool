@@ -1,0 +1,12 @@
+diff -p -up ziptool-1.4.0/ziptool.c.orig ziptool-1.4.0/ziptool.c
+--- ziptool-1.4.0/ziptool.c.orig	2009-10-08 15:52:40.000000000 -0300
++++ ziptool-1.4.0/ziptool.c	2009-10-08 15:53:09.000000000 -0300
+@@ -541,7 +541,7 @@ static int jazip_get_password(
+ 	 * Keep reading from stdin until a newline '\n' character
+ 	 * is received.
+ 	 */
+-	(void)printf(prompt);
++	(void)printf("%s", prompt);
+ 	(void)fflush(stdout);
+ 
+ 	*buf = '\0';
