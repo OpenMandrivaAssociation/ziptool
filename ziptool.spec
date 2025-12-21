@@ -9,6 +9,7 @@ Source0:	ftp://wolfpack.twu.net/users/wolfpack/%{name}-%{version}.tar.bz2
 Patch0:		ziptool-1.4.0-build-fix-private-scsi-define.patch
 Patch1:		ziptool-1.4.0-format-security.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	make
 BuildRequires:	kernel-source-latest
 
 %description
